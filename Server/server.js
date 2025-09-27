@@ -69,3 +69,13 @@ app.post('/api/report', (req, res) => {
     const id = Number(req.body.id);
     if(!id) return res.status(400).json({ error: 'id required' });
     const upd = db.prepare('UPDATE tags SET report_count = report_count + 1 WHERE id = ?');
+    const info = upd.run(id);
+    if(info.changes === 0) return res.status(404).json({ error: 'not found' });
+    res.json({ ok: true });
+  }catch(err){
+    console.error(err);
+    res.status(500).json({ error: 'server error' });
+  }
+});
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
