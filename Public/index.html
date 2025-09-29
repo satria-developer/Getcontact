@@ -1,34 +1,36 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cari Tag — Demo Nyata</title>
-  <style>
-    body{font-family:Inter,Arial;margin:20px;background:#0b1220;color:#e6eef6}
-    .card{background:#071427;padding:18px;border-radius:10px;max-width:800px;margin:0 auto}
-    input, button, textarea{font-size:14px}
-    .tag{display:inline-block;padding:8px 10px;border-radius:999px;margin:6px;background:rgba(255,255,255,0.03)}
-    .meta{color:#9fb2c0;font-size:13px}
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Internal Phone Tags</title>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="card">
-    <h2>Cari Tag (nyata) — Masukkan nomor</h2>
-    <div>
-      <input id="phoneInput" type="tel" placeholder="+62 812 3456 7890" style="width:60%" />
-      <button id="searchBtn">Cari</button>
-    </div>
-    <div style="margin-top:12px">
-      <input id="tagInput" placeholder="Tambahkan tag (mis. Teman)" style="width:60%" />
-      <button id="addTagBtn">Tambah Tag</button>
-    </div>
+<div class="card">
+  <h2>Internal Phone Tags</h2>
+  <label>Nomor telepon</label>
+  <input id="phoneInput" placeholder="+6281234..."/>
+  <button id="lookupBtn">Lihat Tag</button>
+  <div id="result"></div>
 
-    <div id="status" class="meta" style="margin-top:10px">Belum ada pencarian.</div>
+  <hr/>
+  <label>Tambah tag</label>
+  <input id="newTag" placeholder="mis. teman, kerja"/>
+  <button id="addTagBtn">Tambah Tag</button>
 
-    <div id="results" style="margin-top:12px"></div>
-  </div>
+  <hr/>
+  <label>Import / Export CSV</label>
+  <input type="file" id="fileInput" accept=".csv"/>
+  <button id="importBtn">Import</button>
+  <button id="exportBtn">Export</button>
 
-  <script src="/app.js"></script>
+  <hr/>
+  <label>Pencarian</label>
+  <input id="searchInput" placeholder="ketik nomor atau tag"/>
+  <button id="searchBtn">Cari</button>
+  <div id="searchResults"></div>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
